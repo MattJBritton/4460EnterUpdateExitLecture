@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: arial, sans;
+}
+
+g.tick line{
+  opacity: 0.3;
+  stroke: blue;
+}
+
+.label {
+  font-size: 15px;
+}
+
+.legend{
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.legend text,
+.axis text {
+  font-size: 13px;
+  fill: #333;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke-width:1px;
+  stroke: #e7e7e7;
+}
+
+circle {
+  stroke: #fff;
+}
+
+.bubble {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.bubble text {
+  opacity: 0;
+  pointer-events: none;
+  font-size: 12px;
+}
+
+.bubble:hover text {
+  opacity: 1;
+}
+
+.bubble:hover circle {
+  fill-opacity: 1;
+}
