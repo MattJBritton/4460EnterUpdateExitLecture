@@ -3,8 +3,8 @@ const width = 1400 - margin.left - margin.right;
 const height = 700 - margin.top - margin.bottom;
 const yearWidth = 100;
 const yearHeight = 300;
-const animation_duration = 1250;
-const topK = 40;
+const animation_duration = 2000;
+const topK = 30;
 
 var yearFilter = 2018;
 var filteredData = [];
@@ -114,9 +114,10 @@ function build_scatterplot() {
   var bubbleSelection = svg.selectAll("g.bubble")
     .data(filteredData, d=> d.Country);
 
-  bubbleSelection.exit().transition().duration(animation_duration)
+  bubbleSelection.exit()
+  .transition().duration(animation_duration)
     .attr("transform", "translate(0,0)")
-    .style("fill-opacity", 0)  
+    .style("fill-opacity", 0) 
     .remove();
 
   var enter = bubbleSelection
@@ -127,6 +128,7 @@ function build_scatterplot() {
   enter
     .append("circle")
     .attr("r", 5)
+    .style("fill", function(d) {return colorScale(d.Continent)})
     .style("fill", d=>colorScale(d.Continent))
 
   enter
